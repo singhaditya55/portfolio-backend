@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
+const cron = require("node-cron"); // Import node-cron
+const axios = require("axios"); // Import axios for pinging
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -33,6 +35,17 @@ app.get("/", (req, res) => {
   res.send("Portfolio Backend is Running");
 });
 
+// 🔄 Keep the server awake with a cron job (runs every 10 minutes)
+cron.schedule("*/10 * * * *", async () => {
+  try {
+    await axios.get("https://portfolio-backend-7y0o.onrender.com/api/users");
+    console.log("🔄 Pinged self to stay awake at", new Date().toLocaleString());
+  } catch (error) {
+    console.error("❌ Error pinging self:", error.message);
+  }
+});
+
+// Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
