@@ -25,11 +25,13 @@ app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 const userRoutes = require("./routes/users");
 const projectRoutes = require("./routes/projects");
 const hobbyRoutes = require("./routes/hobbies");
+const contactRoutes = require("./routes/contact");
 
 // Use routes
 app.use("/api/users", userRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/hobbies", hobbyRoutes);
+app.use("/api/contact", contactRoutes);
 
 app.get("/", (req, res) => {
   res.send("Portfolio Backend is Running");
