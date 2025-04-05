@@ -31,7 +31,7 @@ This is a **personal portfolio website** designed to showcase my **projects, ski
 ### **Deployment:**  
 - 🌍 **Netlify** – For deploying the frontend.  
 - 🖥 **Render.com** – For hosting the backend.  
-- 💾 **FreeSQLDatabase.com** – For free MySQL database hosting.  
+- 💾 **filess.io** – For free MySQL database hosting.  
 
 ---
 
