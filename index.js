@@ -37,8 +37,8 @@ app.get("/", (req, res) => {
   res.send("Portfolio Backend is Running");
 });
 
-// 🔄 Keep the server awake with a cron job (runs every 10 minutes)
-cron.schedule("*/10 * * * *", async () => {
+// 🔄 Keep the server awake with a cron job (runs every 5 minutes)
+cron.schedule("*/5 * * * *", async () => {
   try {
     await axios.get("https://portfolio-backend-7y0o.onrender.com/api/users");
     console.log("🔄 Pinged self to stay awake at", new Date().toLocaleString());
